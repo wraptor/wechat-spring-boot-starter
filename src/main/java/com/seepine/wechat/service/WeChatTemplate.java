@@ -35,7 +35,7 @@ public class WeChatTemplate implements InitializingBean {
 		if (StrUtil.isNotBlank(openId)) {
 			return openId;
 		}
-		throw new Exception();
+		throw new Exception("获取不到openId");
 	}
 
 	@SneakyThrows
@@ -45,6 +45,6 @@ public class WeChatTemplate implements InitializingBean {
 		if (StrUtil.isNotBlank(access)) {
 			return access;
 		}
-		throw new Exception();
+		throw new Exception("获取不到access");
 	}
 }
