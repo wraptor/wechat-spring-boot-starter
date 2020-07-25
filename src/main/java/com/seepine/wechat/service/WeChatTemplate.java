@@ -26,8 +26,7 @@ public class WeChatTemplate implements InitializingBean {
 		log.debug("afterPropertiesSet WeChatTemplate");
 	}
 
-	@SneakyThrows
-	public String getOpenId(String jsCode) {
+	public String getOpenId(String jsCode) throws Exception {
 		String result = HttpUtil.get(String.format(CommonConstant.MINI_APP_AUTHORIZATION_CODE_URL
 			, weChatProperties.getAppId(), weChatProperties.getAppSecret(), jsCode));
 		JSONObject res = JSONUtil.parseObj(result);
@@ -38,8 +37,7 @@ public class WeChatTemplate implements InitializingBean {
 		throw new Exception("获取不到openId");
 	}
 
-	@SneakyThrows
-	public String getAccess() {
+	public String getAccess() throws Exception {
 		String result = HttpUtil.get(String.format(CommonConstant.ACCESS_URL, weChatProperties.getAppId(), weChatProperties.getAppSecret()));
 		String access = JSONUtil.parseObj(result).getStr(CommonConstant.ACCESS_TOKEN_KEY);
 		if (StrUtil.isNotBlank(access)) {
