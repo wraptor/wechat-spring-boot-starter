@@ -23,7 +23,6 @@ public class WeChatAutoConfiguration {
 	private final WeChatProperties weChatProperties;
 
 	@Bean
-	@DependsOn("restTemplate")
 	@ConditionalOnMissingBean(WeChatTemplate.class)
 	public WeChatTemplate weChatTemplate() {
 		return new WeChatTemplate(weChatProperties);
