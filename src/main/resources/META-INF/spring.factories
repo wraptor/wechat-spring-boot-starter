@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.seepine.wechat.WeChatAutoConfiguration
+com.seepine.wechat.config.WeChatAutoConfiguration
